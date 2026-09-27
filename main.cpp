@@ -39,7 +39,8 @@ int main(){
     string current_word;
 
     while(!exit){
-        cout << "\nCommand> ";
+        // Blank line reserved as padding between the marquee line and the prompt
+        cout << "\n\nCommand> ";
 
         //Tokenization for the commands
         string value;
@@ -66,10 +67,15 @@ int main(){
             marquee.set_text(value);
         }
         else if (command == "set_speed") {
-            marquee.set_speed();
+            try {
+                marquee.set_speed(stoi(value));
+            } catch (...) {
+                cout << "Please provide a valid number of milliseconds";
+            }
         }
         else if (command == "exit") {
-            cout << "Treminating console...";
+            marquee.stop_marquee();
+            cout << "Terminating console...";
             exit = true;
         }
         else {
