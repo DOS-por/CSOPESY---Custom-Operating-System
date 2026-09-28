@@ -9,7 +9,6 @@
 using namespace std;
 
 
-
 class Marquee {
     //Attributes
     private:
@@ -18,14 +17,19 @@ class Marquee {
         thread marquee_thread; // thread that runs the marquee animation
         atomic<bool> running{false}; // flag indicating whether the marquee is running
         atomic<int> speed_ms{160}; // marquee animation refresh speed in milliseconds (default: 160)
+        int spacing = 5;
 
         void animate(){
             size_t offset = 0;
+
+            //manipulation of padding space for teh animation
+            string padding_space(spacing, ' ');
+
             while(running){
                 string padded;
                 { // lock the message mutex to safely access the message string
                     lock_guard<mutex> lock(message_mutex);
-                    padded = message.empty() ? string(" ") : message + "    ";
+                    padded = message.empty() ? string(" ") : message + padding_space;
                 }
                 offset %= padded.size(); // ensure the offset wraps around the length of the padded message
                 string display = padded.substr(offset) + padded.substr(0, offset); // display string built by rotating padded message based on offset
@@ -41,8 +45,9 @@ class Marquee {
 
     //Methods
     public:
-        Marquee(string marq_text){
+        Marquee(string marq_text, int speed, int pad_spaces){
             message = marq_text;
+            speed_ms = speed;
         }
 
         // destructor that will automatically stop the marquee if it's running

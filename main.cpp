@@ -1,10 +1,53 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <sstream>
 #include <windows.h>
 #include "commands/marquee.cpp"
 using namespace std;
 
+// File Reading for config.txt function
+void config_loading(const string& filename, string& text, int& speed, int& spacing) 
+{
+    
+    ifstream file(filename);
+    
+    if(!file.is_open()){
+        cout << "File not found";
+    }
+
+    //Parsing the different configurations
+    string line; // use to store fetch line in the txt file
+    while(getline(file, line)) {
+
+        if (line.empty()) {
+            continue;
+        }
+
+        istringstream iss(line);
+        string attribute, value;
+
+        if(getline(iss, attribute, '=') && getline(iss, value)) {
+
+            if(!value.empty() && value.back() == '\r') {
+                value.pop_back();
+            }
+
+            if(attribute == "marquee_text") {
+                text = value;
+            }
+            else if(attribute == "default_speed") {
+                speed = stoi(value);
+            }
+            else if(attribute == "spacing") {
+                spacing = stoi(value);
+            }
+        }
+
+    }
+
+    file.close();
+}
 
 int main(){
     // Clearout screen
@@ -37,7 +80,15 @@ int main(){
     cout << "║  Version date: 2026-09-27              ║\n";
     cout << "╚════════════════════════════════════════╝";
 
-    Marquee marquee("Welcome");
+    //loading configuration from config.txt
+    string text;
+    int spacing;
+    int speed;
+    
+    config_loading("config.txt", text, speed, spacing);
+    
+    //calling marque
+    Marquee marquee(text, speed, spacing);
 
     bool exit = false;
     string prompt_line;
