@@ -7,11 +7,14 @@
 * Co, Stephen
 
 ### Project Structure
+
+```text
 my_console_project/
-├── main.cpp                       # Primary entry point (contains the main() function)
-├── README.md                      # Project documentation & setup instructions
-└── commands/                      # Folder containing command & animation logic
-    └── marquee.cpp                # Implementation of marquee thread loop (start, set_text, set_speed, start_marquee, stop_marquee)
+├── main.cpp                        # Primary entry point (contains the main() function)
+├── README.md                       # Project documentation & setup instructions
+└── commands/                       # Folder containing command & animation logic
+    └── marquee.cpp                 # Implementation of marquee thread loop (start, set_text, set_speed, start_marquee, stop_marquee)
+```
 
 ## Performance & Optimal Settings
 
