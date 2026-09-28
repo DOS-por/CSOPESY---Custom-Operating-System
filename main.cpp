@@ -24,12 +24,18 @@ int main(){
     cout << "    ────────┘  ─────────┘    ───────┘    ───┘         ────────┘  ─────────┘   ─────────┘ \n";
 
 
-    cout << "\n\nGroup developer:";
-    cout << "\nCampos, Don Oswin";
-    cout << "\nLim, Ethan Yuric";
-    cout << "\nGutierrez, Hanz";
-    cout << "\nCo, Stephen";
-    cout << "\n\nVersion date: 2026-09-27";
+   
+    cout << "\n";
+    cout << "╔════════════════════════════════════════╗\n";
+    cout << "║  GROUP DEVELOPERS                      ║\n";
+    cout << "╠════════════════════════════════════════╣\n";
+    cout << "║  Campos, Don Oswin                     ║\n";
+    cout << "║  Lim, Ethan Yuric                      ║\n";
+    cout << "║  Gutierrez, Hanz                       ║\n";
+    cout << "║  Co, Stephen                           ║\n";
+    cout << "╠════════════════════════════════════════╣\n";
+    cout << "║  Version date: 2026-09-27              ║\n";
+    cout << "╚════════════════════════════════════════╝";
 
     Marquee marquee("Welcome");
 
