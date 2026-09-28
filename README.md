@@ -15,10 +15,25 @@ my_console_project/
 
 ## Performance & Optimal Settings
 
-Through hardware testing, the following animation speed bounds were identified:
+Text Speed value suggestions and observations on value changes:
 
 | Range | Delay ($ms$) | Performance & Visual Behavior |
 | :--- | :--- | :--- |
 | **Optimal** | `100 ms - 160 ms` | Smooth scrolling motion with crisp text legibility. |
 | **Too Fast** | `< 15 ms` | Motion blur makes text unreadable; causes terminal screen tearing. |
 | **Too Slow** | `> 300 ms` | Choppy, stuttered text movement. |
+
+## Prerequisites
+* **C++ Compiler:** `g++` with C++11 (or higher) support.
+* **Operating System:** Windows (Command Prompt / PowerShell).
+
+## Instructions
+## How to Build and Run
+
+### Compilation Instructions
+
+1. Open your terminal in the root directory where `main.cpp` is located.
+2. Run the following command to compile `main.cpp` along with all implementation files inside the `commands/` folder:
+
+```cmd
+g++ main.cpp -o ConsoleApp.exe
