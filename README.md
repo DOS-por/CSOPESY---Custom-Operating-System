@@ -28,7 +28,7 @@ Text Speed value suggestions and observations on value changes:
 * **Operating System:** Windows (Command Prompt / PowerShell).
 
 ## Instructions
-## How to Build and Run
+### How to Build and Run
 
 ### Compilation Instructions
 
@@ -37,3 +37,14 @@ Text Speed value suggestions and observations on value changes:
 
 ```cmd
 g++ main.cpp -o ConsoleApp.exe
+```
+
+### Commands in the Custom Marquee
+| Command | Arguments / Input | Description |
+| :--- | :--- | :--- |
+| **`help`** | *None* | Displays all available commands and their descriptions. |
+| **`start_marquee`** | *None* | Starts the marquee animation. |
+| **`stop_marquee`** | *None* | Stops the marquee animation. |
+| **`set_text`** | `<string>` | Accepts a text input and displays it as a marquee. |
+| **`set_speed`** | `<int>` | Sets the marquee animation refresh delay in milliseconds. |
+| **`exit`** | *None* | Terminates the console application. |
