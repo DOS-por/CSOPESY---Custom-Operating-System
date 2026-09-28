@@ -28,7 +28,8 @@ int main(){
     cout << "\nCampos, Don Oswin";
     cout << "\nLim, Ethan Yuric";
     cout << "\nGutierrez, Hanz";
-    cout << "\n\nVersion date: 2026-09-20";
+    cout << "\nCo, Stephen";
+    cout << "\n\nVersion date: 2026-09-27";
 
     Marquee marquee("Welcome");
 
